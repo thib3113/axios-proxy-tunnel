@@ -1,6 +1,6 @@
 {
   "name": "axios-proxy-tunnel",
-  "version": "0.0.0-development",
+  "version": "0.0.2",
   "description": "",
   "keywords": [
     "axios",
@@ -34,7 +34,6 @@
     "commit": "./node_modules/.bin/git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "./node_modules/.bin/ts-node tools/semantic-release-prepare",
-    "precommit": "./node_modules/.bin/lint-staged",
     "travis-deploy-once": "./node_modules/.bin/travis-deploy-once"
   },
   "lint-staged": {
@@ -74,10 +73,6 @@
     "collectCoverageFrom": [
       "src/*.{js,ts}"
     ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
   },
   "commitlint": {
     "extends": [
@@ -125,5 +120,10 @@
   },
   "dependencies": {
     "tunnel": "^0.0.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
